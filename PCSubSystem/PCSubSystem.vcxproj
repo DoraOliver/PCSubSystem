@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Identity.cpp" />
     <ClCompile Include="PCSubSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
