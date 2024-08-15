@@ -5,7 +5,7 @@ Student::Student()
 
 }
 
-Student::Student(int Id, string name, string Pwd)
+Student::Student(int Id, string name, string pwd)
 {
 
 }

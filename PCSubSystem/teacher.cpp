@@ -11,7 +11,7 @@ Teacher::Teacher(int empId, string name, string pwd)
 }
 
 //≤Àµ•ΩÁ√Ê
-void Teacher::operMenu()
+void Teacher::openMenu()
 {
 }
 

@@ -11,7 +11,7 @@ public:
 
 	Student();
 
-	~Student();
+	Student(int Id, string name, string pwd);
 
 	virtual void openMenu();
 

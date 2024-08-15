@@ -14,7 +14,7 @@ public:
 	Manager(string name, string pwd);
 
 	//—°‘Ò≤Àµ•
-	virtual void operMenu();
+	virtual void openMenu();
 
 	//ÃÌº”’À∫≈  
 	void addPerson();

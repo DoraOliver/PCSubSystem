@@ -32,13 +32,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Identity.h">
+    <ClInclude Include="identity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="teacher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="globalFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
