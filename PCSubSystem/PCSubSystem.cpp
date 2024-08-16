@@ -50,6 +50,80 @@ void managerMenu(Identity * &manager)
 	}
 }
 
+void studentMenu(Identity*& student)
+{
+	while (true)
+	{
+		//学生菜单
+		student->openMenu();
+
+		Student* stu = (Student*)student;
+		int select = 0;
+
+		cin >> select;
+
+		if (select == 1) //申请预约
+		{
+			stu->applyOrder();
+		}
+		else if (select == 2) //查看自身预约
+		{
+			stu->showMyOrder();
+		}
+		else if (select == 3) //查看所有预约
+		{
+			stu->showAllOrder();
+		}
+		else if (select == 4) //取消预约
+		{
+			stu->cancelOrder();
+		}
+		else
+		{
+			delete student;
+			cout << "注销成功" << endl;
+			system("pause");
+			system("cls");
+			return;
+		}
+	}
+}
+
+
+void TeacherMenu(Identity*& teacher)
+{
+	while (true)
+	{
+		//教师菜单
+		teacher->openMenu();
+
+		Teacher* tea = (Teacher*)teacher;
+		int select = 0;
+
+		cin >> select;
+
+		if (select == 1)
+		{
+			//查看所有预约
+			tea->showAllOrder();
+		}
+		else if (select == 2)
+		{
+			//审核预约
+			tea->validOrder();
+		}
+		else
+		{
+			delete teacher;
+			cout << "注销成功" << endl;
+			system("pause");
+			system("cls");
+			return;
+		}
+
+	}
+}
+
 void LoginIn(string fileName, int type)
 {
 
@@ -103,7 +177,7 @@ void LoginIn(string fileName, int type)
 				system("pause");
 				system("cls");
 				person = new Student(id, name, pwd);
-
+				studentMenu(person);
 				return;
 			}
 		}
@@ -122,6 +196,7 @@ void LoginIn(string fileName, int type)
 				system("pause");
 				system("cls");
 				person = new Teacher(id, name, pwd);
+				TeacherMenu(person);
 				return;
 			}
 		}
