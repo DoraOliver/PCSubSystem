@@ -9,6 +9,47 @@
 
 using namespace std;
 
+void managerMenu(Identity * &manager)
+{
+	while (true)
+	{
+		manager->openMenu();
+		Manager* man = (Manager*)manager;
+		int select = 0;
+
+		cin >> select;
+
+		if (select == 1)  //添加账号
+		{
+			cout << "添加账号" << endl;
+			man->addPerson();
+		}
+		else if (select == 2) //查看账号
+		{
+			cout << "查看账号" << endl;
+			man->showPerson();
+		}
+		else if (select == 3) //查看机房
+		{
+			cout << "查看机房" << endl;
+			man->showComputer();
+		}
+		else if (select == 4) //清空预约
+		{
+			cout << "清空预约" << endl;
+			man->cleanFile();
+		}
+		else
+		{
+			delete manager;
+			cout << "注销成功" << endl;
+			system("pause");
+			system("cls");
+			return;
+		}
+	}
+}
+
 void LoginIn(string fileName, int type)
 {
 
@@ -61,7 +102,7 @@ void LoginIn(string fileName, int type)
 				cout << "学生验证登录成功!" << endl;
 				system("pause");
 				system("cls");
-				//person = new Student(id, name, pwd);
+				person = new Student(id, name, pwd);
 
 				return;
 			}
@@ -80,7 +121,7 @@ void LoginIn(string fileName, int type)
 				cout << "教师验证登录成功!" << endl;
 				system("pause");
 				system("cls");
-				//person = new Teacher(id, name, pwd);
+				person = new Teacher(id, name, pwd);
 				return;
 			}
 		}
@@ -88,6 +129,22 @@ void LoginIn(string fileName, int type)
 	else if (type == 3)
 	{
 		//管理员登录验证
+		string fName;
+		string fPwd;
+		while (ifs >> fName && ifs >> fPwd)
+		{
+			if (name == fName && pwd == fPwd)
+			{
+				cout << "验证登录成功!" << endl;
+				//登录成功后，按任意键进入管理员界面
+				system("pause");
+				system("cls");
+				//创建管理员对象
+				person = new Manager(name, pwd);
+				managerMenu(person);
+				return;
+			}
+		}
 	}
 
 	cout << "验证登录失败!" << endl;
